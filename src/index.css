@@ -1,13 +1,255 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --blue: #005e7c;
+  --blue-light: #028cb8;
+  --orange-light: #ff6b35;
+  --orange-dark: #e04f19;
+  --yellow: #fceac0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
 }
+
+
+.bg {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(https://www.comete-tp.fr/static/photos/344/public/images/photos/1309_nJga7SeeVu6McIF9FKB4.jpg);
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  z-index: -1000;
+}
+
+/* Rectangles */
+.body-rect--orange {
+  position: fixed;
+  width: 2000px;
+  height: 1000px;
+  bottom: -900px;
+  left: -400px;
+  background-color: var(--orange-dark);
+  background: linear-gradient(180deg, rgba(224,79,25,0.02) 0%, rgba(224,79,25,0.5) 12%, rgba(224,79,25,1) 100%);
+  z-index: -500;
+  transform: rotate(30deg);
+}
+
+.body-rect--blue {
+  position: fixed;
+  width: 1500px;
+  height: 500px;
+  top: -300px;
+  right: -300px;
+  background: linear-gradient(0deg, rgba(0,94,124,0.02) 0%, rgba(0,94,124,0.5) 8%, rgba(0,94,124,1) 80%);
+  z-index: -500;
+  transform: rotate(30deg);
+}
+
+/* TEMP LANDING PAGE */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  margin: 100px auto;
+  z-index: 10;
+}
+
+/* REGISTER AND LOGIN FORMS */
+.container {
+  max-width: 700px;
+  margin: 100px auto;
+}
+
+.form {
+  position: relative;
+  width: 100%;
+  background: rgb(220, 220, 220, 0.8);
+  backdrop-filter: blur(2px);
+  padding: 0 40px;
+}
+
+.form_title {
+  text-align: center;
+  font-size: 3rem;
+  padding: 50px 0;
+}
+
+.form_row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form_row label, .form_row legend {
+  margin: 7px 0;
+  color: var(--blue);
+}
+
+.form_row select {
+  height: 2rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  transition: border 0.2s ease;
+}
+
+
+
+.form_row input:not([type="file"]) {
+  height: 2rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  outline: none;
+  border: 2px solid rgb(255, 255, 255);
+  padding: 7px 5px;
+  font-size: 1.2rem;
+  transition: border 0.2s ease;
+}
+
+.form_row input:focus,select:focus {
+  border: 2px solid var(--orange-light);
+}
+
+.form_row a {
+  text-align: end;
+  color: var(--blue);
+  margin: 7px 0;
+  outline: none;
+}
+
+.form_row a:focus {
+  font-weight: 700;
+}
+
+.form_row--inline p:first-of-type {
+  display: inline-block;
+}
+
+.form_row--inline p:last-of-type {
+  display: block;
+  color: red;
+}
+
+.form_row--inline input[type="checkbox"] {
+  margin-right: 7px;
+  cursor: pointer;
+}
+
+/* HANDLE RADIO BUTTONS */
+
+.form_radio {
+  display: flex;
+}
+
+.form_radio input[type="radio"] {
+  padding: 0;
+/*   box-sizing: content-box; */
+  appearance: none;
+
+  border-radius: 50%;
+  width: 1.3rem;
+  height: 1.3rem;
+
+  border: 2px solid var(--blue);
+  transition: 0.2s all linear;
+  margin-right: 5px;
+
+  position: relative;
+  top: 7px;
+}
+
+.form_radio input[type="radio"]:checked {
+  border: 6px solid var(--blue);
+}
+
+.form_radio input[type="radio"]:focus {
+  border: 6px solid var(--orange-dark);
+}
+
+.form_radio input[type="radio"]:hover {
+  cursor: pointer;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 0.3rem;
+  background-color: var(--blue-light);
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  transition: all 0.2s ease;
+  height: 3rem;
+  line-height: 2rem;
+  border: none;
+  justify-content: center;
+  cursor: pointer;
+  margin: 20px 20px 20px 0; /* 20 px to the right */
+}
+
+.button.primary {
+  background-color: var(--blue);
+}
+
+.button.primary:hover, .button.primary:focus {
+  background-color: var(--blue-light);
+}
+
+.button.secondary {
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow:inset 0px 0px 0px 1px var(--blue);
+  color: var(--blue);
+}
+
+.button.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* Error handling */
+.error input:not([type="file"]) {
+  border: 2px solid red;
+  background-color: rgba(255, 0, 0, 0.3)
+}
+
+.error p:last-child {
+  font-size: 0.8rem;
+  color: red;
+}
+
+.error select {
+  border: 2px solid red;
+  background-color: rgba(255, 0, 0, 0.3)
+}
+
+.err-msg {
+  color: red;
+  font-size: 0.8rem;
+}
+
+
+.success_container {
+  width: 600px;
+  max-width: 600px;
+  height: 300px;
+  max-height: 300px;
+  margin: 100px auto;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
